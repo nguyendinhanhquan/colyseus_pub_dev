@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta name="viewport" content="width=device-width" />
 
     <style>
-      body { font-family: Tahoma, Geneva, sans-serif; }
+        body {
+            font-family: Tahoma, Geneva, sans-serif;
+        }
     </style>
 
     <!-- colyseus.js client -->
     <script type="text/javascript" src="https://unpkg.com/colyseus.js@^0.14.0/dist/colyseus.js"></script>
 
     <style type="text/css">
-      .player {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        padding-top: 24px;
-        box-sizing: border-box;
-        left: 0;
-        top: 0;
-      }
+        .player {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            padding-top: 24px;
+            box-sizing: border-box;
+            left: 0;
+            top: 0;
+        }
     </style>
 
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>
-      <a href="https://github.com/colyseus/colyseus-examples"><img src="https://cdn.jsdelivr.net/gh/colyseus/colyseus@master/media/header.png" height="100" alt="colyseus" /></a>
+        <a href="https://github.com/colyseus/colyseus-examples"><img
+                src="https://cdn.jsdelivr.net/gh/colyseus/colyseus@master/media/header.png" height="100"
+                alt="colyseus" /></a>
     </h1>
 
     <p>This example shows how to use custom data structures in your room's state.</p>
@@ -45,6 +51,7 @@
         var room;
         client.joinOrCreate("state_handler").then(room_instance => {
             room = room_instance
+            console.log("===> AQ 🥕  => client.joinOrCreate => room", room)
 
             var players = {};
             var colors = ['red', 'green', 'yellow', 'blue', 'cyan', 'magenta'];
@@ -72,7 +79,7 @@
                 delete players[sessionId];
             }
 
-            
+
             room.onMessage("hello", (message) => {
                 console.log(message);
             });
@@ -94,23 +101,24 @@
 
         });
 
-        function up () {
+        function up() {
             room.send("move", { y: -1 });
         }
 
-        function right () {
+        function right() {
             room.send("move", { x: 1 });
         }
 
-        function down () {
+        function down() {
             room.send("move", { y: 1 })
         }
 
-        function left () {
+        function left() {
             room.send("move", { x: -1 })
         }
 
 
     </script>
-  </body>
+</body>
+
 </html>
