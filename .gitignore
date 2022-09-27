@@ -2,4 +2,4 @@
 # package-lock.json
 npm-debug.log
 # lib
-*.js
+# *.js
